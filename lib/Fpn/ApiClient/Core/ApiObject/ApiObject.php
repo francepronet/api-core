@@ -6,7 +6,7 @@ use Fpn\ApiClient\Core\ApiObject\ApiObjectInterface;
 use Fpn\ApiClient\Core\ApiClient;
 use Fpn\ApiClient\Core\Utility\Caster;
 
-class ApiObject implements ApiObjectInterface
+abstract class ApiObject implements ApiObjectInterface
 {
     protected $fetchUrl;
     protected $fetchAllUrl;
@@ -15,6 +15,8 @@ class ApiObject implements ApiObjectInterface
     protected $deleteUrl;
 
     protected $apiClient;
+
+    abstract public function save();
 
     public function __construct()
     {

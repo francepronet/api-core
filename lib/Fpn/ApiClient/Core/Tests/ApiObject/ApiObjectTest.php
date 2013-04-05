@@ -16,6 +16,11 @@ class Whatever extends ApiObject
         parent::__construct();
     }
 
+    public function save()
+    {
+        $this->saveItem();
+    }
+
     public function getId()
     {
         return $this->id;
@@ -66,7 +71,7 @@ class ApiObjectTest extends \PHPUnit_Framework_TestCase
         $apiClient
             ->expects($this->any())
             ->method('request')
-            ->will($this->returnValue((array)json_decode(json_encode(array('items' => $expected)))));
+            ->will($this->returnValue(json_decode(json_encode(array('items' => $expected)))));
 
         $object->setApiClient($apiClient);
 
