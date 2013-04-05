@@ -38,7 +38,7 @@ class ApiObject implements ApiObjectInterface
 
     public function fetchAll($page = 1, $limit = 20)
     {
-        $items = $this->apiClient->request('GET', $this->fetchAllUrl)['items'];
+        $items = $this->apiClient->request('GET', $this->fetchAllUrl)->items;
 
         $response = array();
         foreach ($items as $item) {
