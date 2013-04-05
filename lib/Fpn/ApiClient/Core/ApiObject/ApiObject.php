@@ -16,13 +16,9 @@ class ApiObject implements ApiObjectInterface
 
     protected $apiClient;
 
-    public function __construct($id = null)
+    public function __construct()
     {
         $this->apiClient = new ApiClient();
-
-        if (null !== $id) {
-            $this->fetch($id);
-        }
     }
 
     public function setApiClient(ApiClient $apiClient)
