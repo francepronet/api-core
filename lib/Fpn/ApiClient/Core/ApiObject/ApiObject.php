@@ -16,6 +16,8 @@ abstract class ApiObject implements ApiObjectInterface
 
     protected $apiClient;
 
+    protected $id;
+
     abstract public function save();
 
     public function __construct()
@@ -83,5 +85,10 @@ abstract class ApiObject implements ApiObjectInterface
         Caster::cast($response, $this);
 
         return $this;
+    }
+
+    public function getId()
+    {
+        return $this->id;
     }
 }
