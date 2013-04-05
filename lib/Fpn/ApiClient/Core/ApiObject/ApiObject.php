@@ -53,7 +53,7 @@ class ApiObject implements ApiObjectInterface
         return $response;
     }
 
-    public function save($datas = array())
+    protected function saveItem($datas = array())
     {
         if (!empty($this->id)) {
             $method = 'PUT';
