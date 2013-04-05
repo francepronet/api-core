@@ -16,6 +16,9 @@ class Caster
             $name  = $sourceProperty->getName();
             $value = $sourceProperty->getValue($from);
 
+            // lowerCamelCaseAttribute
+            $name = lcfirst(implode('', array_map('ucfirst', explode('_', $name))));
+
             if ($destReflection->hasProperty($name)) {
                 $destProperty = $destReflection->getProperty($name);
                 $destProperty->setAccessible(true);
