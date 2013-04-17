@@ -63,7 +63,8 @@ class ApiClient
         );
 
         if (null !== $datas) {
-            $curlOptions[CURLOPT_POSTFIELDS] = http_build_query($datas);
+            $curlOptions[CURLOPT_POST] = true;
+            $curlOptions[CURLOPT_POSTFIELDS] = $datas;
         }
 
         return $curlOptions;
