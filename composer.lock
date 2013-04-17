@@ -1,4 +1,8 @@
 {
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
     "hash": "e755f1f9af8fef5aee157f1fe3d4cb77",
     "packages": [
 
@@ -247,12 +251,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c88d4316320cc10a014549c069f1420963089d1d"
+                "reference": "6717a7ff4d7899f68c189c35d41e476ff89f8981"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c88d4316320cc10a014549c069f1420963089d1d",
-                "reference": "c88d4316320cc10a014549c069f1420963089d1d",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6717a7ff4d7899f68c189c35d41e476ff89f8981",
+                "reference": "6717a7ff4d7899f68c189c35d41e476ff89f8981",
                 "shasum": ""
             },
             "require": {
@@ -316,7 +320,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2013-04-01 10:02:29"
+            "time": "2013-04-16 16:51:28"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -494,12 +498,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/version.git",
-                "reference": "1.0.0"
+                "reference": "1d2f0e9bc9bc771244550106d4de029948182303"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/version/zipball/1.0.0",
-                "reference": "1.0.0",
+                "url": "https://api.github.com/repos/sebastianbergmann/version/zipball/1d2f0e9bc9bc771244550106d4de029948182303",
+                "reference": "1d2f0e9bc9bc771244550106d4de029948182303",
                 "shasum": ""
             },
             "type": "library",
@@ -521,7 +525,7 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2013-01-05 14:27:32"
+            "time": "2013-04-17 10:55:54"
         },
         {
             "name": "symfony/yaml",
@@ -530,12 +534,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "3f6d4ab3fd8226ab4ba0be9fc8a238f4338b79ab"
+                "reference": "v2.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/3f6d4ab3fd8226ab4ba0be9fc8a238f4338b79ab",
-                "reference": "3f6d4ab3fd8226ab4ba0be9fc8a238f4338b79ab",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/v2.2.1",
+                "reference": "v2.2.1",
                 "shasum": ""
             },
             "require": {
