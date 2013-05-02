@@ -40,9 +40,14 @@ abstract class ApiObject implements ApiObjectInterface
         return $this;
     }
 
-    public function fetchAll($page = 1, $limit = 20)
+    public function fetchAll($page = 1, $limit = 20, $query = null)
     {
-        $items = $this->apiClient->request('GET', $this->fetchAllUrl)->items;
+        $queryString = "?page={$page}&limit={$limit}";
+        if (!empty($query)) {
+            $queryString .= '&'.http_build_query($query);
+        }
+
+        $items = $this->apiClient->request('GET', $this->fetchAllUrl.$queryString)->items;
 
         $response = array();
         foreach ($items as $item) {
