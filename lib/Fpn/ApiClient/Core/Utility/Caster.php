@@ -26,4 +26,15 @@ class Caster
             }
         }
     }
+
+    public static function arrayToStdObject($array)
+    {
+        $object = new \stdClass;
+
+        foreach ($array as $key => $value) {
+            $object->{$key} = $value;
+        }
+
+        return $object;
+    }
 }

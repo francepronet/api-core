@@ -51,6 +51,7 @@ abstract class ApiObject implements ApiObjectInterface
 
         $response = array();
         foreach ($items as $item) {
+            $item = Caster::arrayToStdObject($item);
             $currentClass = get_called_class();
             $castedObject = new $currentClass();
 

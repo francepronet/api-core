@@ -2,6 +2,9 @@
 
 namespace Fpn\ApiClient\Core;
 
+use Guzzle\Http\Client;
+use Fpn\ApiClient\Core\Utility\Caster;
+
 class ApiClient
 {
     private $host;
@@ -24,27 +27,19 @@ class ApiClient
     {
         $url = $this->prepareUrl($url);
 
-        $ch = curl_init();
-        $curl_options = $this->prepareCurlOptions($method, $url, $datas);
-        curl_setopt_array($ch, $curl_options);
+        $client  = new Client($this->prepareUrl());
+        $request = $client->createRequest(strtoupper($method), $url, null, $datas);
 
-        $response = curl_exec($ch);
+        $response = $request->send();
 
-        $responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        if (200 !== $responseCode) {
+        if (!$response->isSuccessful()) {
             throw new \Exception('Retour autre que 200');
         }
 
-        if (!$response) {
-            throw new \Exception('Curl a retourné false, erreur curl');
-        }
-
-        $response = $this->prepareResponse($response);
-
-        return $response;
+        return Caster::arrayToStdObject($response->json());
     }
 
-    private function prepareUrl($url)
+    private function prepareUrl($url = null)
     {
         $preparedUrl = $this->ssl ? 'https://' : 'http://';
         $preparedUrl .= $this->host;
