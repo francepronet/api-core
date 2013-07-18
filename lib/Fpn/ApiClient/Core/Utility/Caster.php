@@ -6,6 +6,10 @@ class Caster
 {
     public static function cast($from, &$to)
     {
+        if (!is_object($from)) {
+            $from = (object)$from;
+        }
+
         $sourceReflection = new \ReflectionObject($from);
         $destReflection   = new \ReflectionObject($to);
         $sourceProperties = $sourceReflection->getProperties();

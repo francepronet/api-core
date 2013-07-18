@@ -27,8 +27,17 @@ class ApiClient
     {
         $url = $this->prepareUrl($url);
 
+        if (isset($datas['upload'])) {
+            $upload = $datas['upload'];
+            unset($datas['upload']);
+        }
+
         $client  = new Client($this->prepareUrl());
         $request = $client->createRequest(strtoupper($method), $url, null, $datas);
+
+        if (isset($upload)) {
+            $request->addPostFile('upload', $upload);
+        }
 
         $response = $request->send();
 
