@@ -3,6 +3,7 @@
 namespace Fpn\ApiClient\Core;
 
 use Guzzle\Http\Client;
+use Atst\Guzzle\Http\Plugin\WsseAuthPlugin;
 use Fpn\ApiClient\Core\Utility\Caster;
 
 class ApiClient
@@ -10,12 +11,16 @@ class ApiClient
     private $host;
     private $port;
     private $ssl;
+    private $username;
+    private $password;
 
-    public function __construct($host = 'localhost', $port = 80, $ssl = false)
+    public function __construct($host = 'localhost', $port = 80, $ssl = false, $username = false, $password = false)
     {
-        $this->host = $host;
-        $this->port = $port;
-        $this->ssl  = $ssl;
+        $this->host 	= $host;
+        $this->port 	= $port;
+        $this->ssl  	= $ssl;
+        $this->username = $username;
+        $this->password = $password;
     }
 
     public function useSsl($ssl)
@@ -33,6 +38,12 @@ class ApiClient
         }
 
         $client  = new Client($this->prepareUrl());
+
+        if($this->username && $this->password) {
+        	$wsse = new WsseAuthPlugin($this->username, $this->password);
+        	$client->getEventDispatcher()->addSubscriber($wsse);
+        }
+        
         $request = $client->createRequest(strtoupper($method), $url, null, $datas);
 
         if (isset($upload)) {
